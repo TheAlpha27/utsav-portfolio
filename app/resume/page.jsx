@@ -1,8 +1,4 @@
 "use client";
-
-import { Certificate } from "crypto";
-import { FaHtml5, FaCss3, FaJs, FaNodeJs, FaReact } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 import { motion } from "framer-motion";
 import {
   Tabs,
@@ -17,119 +13,7 @@ import {
   TooltipTrigger,
 } from "../../components/ui/tooltip";
 import { ScrollArea } from "../../components/ui/scroll-area";
-
-const about = {
-  title: "About me",
-  description:
-    "fweuih efhiuew ewh fuie efgbhwae  ehfui awef dvgyufdg vuyh uihf uiwe",
-  info: [
-    {
-      fieldName: "Name",
-      fieldValue: "Utsav Soni",
-    },
-    {
-      fieldName: "Phone",
-      fieldValue: "+91-961683286",
-    },
-    {
-      fieldName: "Email",
-      fieldValue: "utsav.soni.27@gmail.com",
-    },
-    {
-      fieldName: "Nationality",
-      fieldValue: "Indian",
-    },
-    {
-      fieldName: "Languages",
-      fieldValue: "Hindi, English",
-    },
-    {
-      fieldName: "Experience",
-      fieldValue: "2+ Years",
-    },
-    {
-      fieldName: "Freelance",
-      fieldValue: "Available",
-    },
-    {
-      fieldName: "FTE Role",
-      fieldValue: "Available",
-    },
-  ],
-};
-
-const experience = {
-  icon: "/assets/resume/badge.svg",
-  title: "My Experience",
-  description: "wefg rg er erthgrtgreh rthtrht hth",
-  items: [
-    {
-      company: "Little Paws Care, NGO",
-      position: "Volunteer, React Developer",
-      duration: "January 2022 - February 2022, 2 Months",
-      type: "Remote",
-    },
-    {
-      company: "Little Paws Care, NGO",
-      position: "React Developer",
-      duration: "January 2022 - February 2022, 2 Months",
-      type: "Remote",
-    },
-    {
-      company: "Little Paws Care, NGO",
-      position: "React Developer",
-      duration: "January 2022 - February 2022, 2 Months",
-      type: "Remote",
-    },
-  ],
-};
-
-const education = {
-  icon: "/assets/resume/cap.svg",
-  title: "My Education",
-  description: "wefg rg er erthgrtgreh rthtrht hth",
-  items: [
-    {
-      institution: "Shri Barfani Academy, Indore",
-      degree: "Higher Secondary",
-      duration: "January 2022 - February 2022",
-      Score: "90%",
-    },
-    {
-      institution: "National Institute Of Technology, Kurukshetra",
-      degree: "B-Tech in Information Technology",
-      duration: "January 2020 - February 2024",
-      Score: "8.0 CGPA",
-    },
-  ],
-};
-
-const skills = {
-  title: "My Skills",
-  description: "wefg rg er erthgrtgreh rthtrht hth",
-  skillList: [
-    {
-      icon: <FaHtml5 />,
-      title: "HTML 5",
-      certification: false,
-    },
-    {
-      icon: <FaHtml5 />,
-      title: "HTML 5",
-      certification: false,
-    },
-    {
-      icon: <FaHtml5 />,
-      title: "HTML 5",
-      certification: false,
-    },
-    {
-      icon: <FaHtml5 />,
-      title: "HTML 5",
-      certification: false,
-    },
-  ],
-};
+import { about, education, experience, skills } from "../../lib/constants";
 
 const Resume = () => {
   return (

@@ -13,69 +13,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "../../components/WorkSliderBtns";
-
-const projects = [
-  {
-    num: "01",
-    category: "frontend",
-    title: "project 1",
-    description: "ferhfaeufia ",
-    stack: [
-      {
-        name: "HTML 5",
-      },
-      {
-        name: "CSS",
-      },
-      {
-        name: "Javascript",
-      },
-    ],
-    image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
-  },
-  {
-    num: "02",
-    category: "fullstack",
-    title: "project 2",
-    description: "ferhfaeufia ",
-    stack: [
-      {
-        name: "HTML 5",
-      },
-      {
-        name: "CSS",
-      },
-      {
-        name: "Javascript",
-      },
-    ],
-    image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
-  },
-  {
-    num: "03",
-    category: "backend",
-    title: "project 3",
-    description: "ferhfaeufia ",
-    stack: [
-      {
-        name: "HTML 5",
-      },
-      {
-        name: "CSS",
-      },
-      {
-        name: "Javascript",
-      },
-    ],
-    image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
-  },
-];
+import { projects } from "../../lib/constants";
 
 const Work = () => {
   const [project, setProject] = useState(projects[0]);

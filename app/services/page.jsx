@@ -1,35 +1,8 @@
 "use client";
-
 import { BsArrowDownRight } from "react-icons/bs";
 import { motion } from "framer-motion";
-import Link from "next/link";
-
-const services = [
-  {
-    num: "01",
-    title: "Web Development",
-    description: "ABCushdfv",
-    href: "/contact",
-  },
-  {
-    num: "02",
-    title: "Web 2",
-    description: "2",
-    href: "/contact",
-  },
-  {
-    num: "03",
-    title: "Web 3",
-    description: "3",
-    href: "/contact",
-  },
-  {
-    num: "04",
-    title: "Web 4",
-    description: "4",
-    href: "/contact",
-  },
-];
+import Link from "next/link"
+import { services } from "../../lib/constants";
 
 const Services = () => {
   return (
