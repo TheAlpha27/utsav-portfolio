@@ -9,25 +9,25 @@ const services = [
     num: "01",
     title: "Web Development",
     description: "ABCushdfv",
-    href: "",
+    href: "/contact",
   },
   {
     num: "02",
     title: "Web 2",
     description: "2",
-    href: "",
+    href: "/contact",
   },
   {
     num: "03",
     title: "Web 3",
     description: "3",
-    href: "",
+    href: "/contact",
   },
   {
     num: "04",
     title: "Web 4",
     description: "4",
-    href: "",
+    href: "/contact",
   },
 ];
 
