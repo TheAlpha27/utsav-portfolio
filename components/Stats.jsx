@@ -1,11 +1,11 @@
 "use client";
 import CountUp from "react-countup";
+import { skills } from "../lib/constants";
 
 const stats = [
-  { num: 12, text: "Years of experience" },
+  { num: 2, text: "Years of experience" },
   { num: 3, text: "Projects completed" },
-  { num: 8, text: "Technologies mastered" },
-  { num: 500, text: "Code commits" },
+  { num: skills.skillList.length, text: "Technologies mastered" },
 ];
 
 const Stats = () => {
@@ -19,12 +19,17 @@ const Stats = () => {
                 key={index}
                 className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
               >
-                <CountUp
-                  end={item.num}
-                  duration={5}
-                  delay={2}
-                  className="text-4xl xl:text-6xl font-semibold"
-                />
+                <div className="flex items-center">
+                  <CountUp
+                    end={item.num}
+                    duration={5}
+                    delay={2}
+                    className="text-4xl xl:text-6xl font-semibold"
+                  />
+                  {index !== 2 && (
+                    <p className="text-4xl xl:text-6xl font-semibold">+</p>
+                  )}
+                </div>
                 <p
                   className={`${
                     item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"

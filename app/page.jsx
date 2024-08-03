@@ -4,6 +4,7 @@ import Socials from "../components/Socials";
 import Photo from "../components/Photo";
 import Stats from "../components/Stats";
 import Link from "next/link";
+import { HomeInfo } from "../lib/constants";
 
 export default function Home() {
   return (
@@ -11,19 +12,16 @@ export default function Home() {
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl">Frontend Engineer</span>
+            <span className="text-xl">{HomeInfo.title}</span>
             <h1 className="h1">
               Hello I{`'`}m <br />{" "}
-              <span className="text-accent">Utsav Soni</span>
+              <span className="text-accent">{HomeInfo.name}</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80">About me.......</p>
+            <p className="max-w-[500px] mb-9 text-white/80">
+              {HomeInfo.description}
+            </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Link
-                href={
-                  "https://drive.google.com/drive/folders/1sMNqrg3P_sNKatt6bFgwdsiKnZq_X3D8?usp=sharing"
-                }
-                target="_blank"
-              >
+              <Link href={HomeInfo.resumeLink} target="_blank">
                 <Button
                   variant="outline"
                   size="lg"

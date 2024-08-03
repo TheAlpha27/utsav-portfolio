@@ -14,6 +14,9 @@ import {
 } from "../../components/ui/tooltip";
 import { ScrollArea } from "../../components/ui/scroll-area";
 import { about, education, experience, skills } from "../../lib/constants";
+import Link from "next/link";
+import { AiFillSafetyCertificate } from "react-icons/ai";
+import { GoStarFill } from "react-icons/go";
 
 const Resume = () => {
   return (
@@ -37,7 +40,7 @@ const Resume = () => {
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
+            <TabsTrigger value="skills">Tech Stack</TabsTrigger>
             <TabsTrigger value="about">About me</TabsTrigger>
           </TabsList>
 
@@ -64,6 +67,18 @@ const Resume = () => {
                             <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
                             <p className="text-white/60">{item.company}</p>
                           </div>
+                          {item.ceritficateLink && (
+                            <div className="flex items-center gap-3">
+                              <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                              <Link
+                                href={item.ceritficateLink}
+                                className="text-white/60 underline hover:text-accent transition-all duration-300"
+                                target="_blank"
+                              >
+                                Certificate Link
+                              </Link>
+                            </div>
+                          )}
                         </li>
                       );
                     })}
@@ -88,11 +103,15 @@ const Resume = () => {
                         >
                           <span className="text-accent">{item.duration}</span>
                           <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                            {item.degree}
+                            {item.institution}
                           </h3>
                           <div className="flex items-center gap-3">
                             <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
-                            <p className="text-white/60">{item.institution}</p>
+                            <p className="text-white/60">{item.degree}</p>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                            <p className="text-white/60">{item.Score}</p>
                           </div>
                         </li>
                       );
@@ -106,30 +125,50 @@ const Resume = () => {
               <div className="flex flex-col gap-[30px]">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
                   <h3 className="text-4xl font-bold">{skills.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                    {skills.description}
-                  </p>
                 </div>
-                <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px]">
-                  {skills.skillList.map((skill, index) => {
-                    return (
-                      <li key={index}>
-                        <TooltipProvider delayDuration={100}>
-                          <Tooltip>
-                            <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
-                              <div className="text-6xl group-hover:text-accent transition-all duration-300">
-                                {skill.icon}
-                              </div>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p className="capitalize">{skill.title}</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <ScrollArea className="h-[500px]">
+                  <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px]">
+                    {skills.skillList.map((skill, index) => {
+                      return (
+                        <li key={index}>
+                          <TooltipProvider delayDuration={100}>
+                            <Tooltip>
+                              <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group relative">
+                                {skill.star && !skill.certification && (
+                                  <div className="absolute top-4 right-4">
+                                    <GoStarFill />
+                                  </div>
+                                )}
+                                {skill.certification && (
+                                  <>
+                                    <div className="absolute top-4 right-10">
+                                      <GoStarFill />
+                                    </div>
+                                    <div className="absolute top-4 right-4">
+                                      <AiFillSafetyCertificate />
+                                    </div>
+                                    <Link
+                                      href={skill.certification}
+                                      className="absolute bottom-4 text-xs underline hover:text-accent transition-all duration-300"
+                                    >
+                                      Certificate Link
+                                    </Link>
+                                  </>
+                                )}
+                                <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                                  {skill.icon}
+                                </div>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p className="capitalize">{skill.title}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </ScrollArea>
               </div>
             </TabsContent>
 
@@ -149,7 +188,7 @@ const Resume = () => {
                         key={index}
                         className="flex items-center justify-center xl:justify-start gap-4"
                       >
-                        <span className="text-white/60">{item.fieldName}</span>
+                        <span className="text-white/60">{item.fieldName}:</span>
                         <span className="text-xl">{item.fieldValue}</span>
                       </li>
                     );
